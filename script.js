@@ -17,3 +17,11 @@ const ELtotal_interest = document.getElementById('total-interest');
 const principal = parseFloat(ELamount.value);
 const calculatedInterest = parseFloat(ELinterest.value) /100 /12;
 const calculatedPayment = parseFloat(ELyears.value )*12;
+const x = Math.pow(1 + calculatedInterest, calculatedPayment);
+const monthly = (principal * x * calculatedInterest) / (x - 1);
+console.log(monthly);
+if(isFinite(monthly)){
+ELMonthly_payment.value = monthly.toFixed(2);
+ELtotal_payment.value = (monthly*calculatedPayment).toFixed(2);
+ELtotal_interest.value = ((monthly*calculatedPayment)-principal).toFixed(2);
+document.getElementById('results').style.display='block';
