@@ -25,3 +25,13 @@ ELMonthly_payment.value = monthly.toFixed(2);
 ELtotal_payment.value = (monthly*calculatedPayment).toFixed(2);
 ELtotal_interest.value = ((monthly*calculatedPayment)-principal).toFixed(2);
 document.getElementById('results').style.display='block';
+document.getElementById('loading').style.display='none';
+}else{
+console.log("Plase check your numbers");
+showError('Plase check your number');
+}
+e.preventDefault();
+}
+function showError(error){
+document.getElementById('results').style.display='none';
+document.getElementById('loading').style.display='none';
