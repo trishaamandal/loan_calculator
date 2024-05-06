@@ -35,3 +35,14 @@ e.preventDefault();
 function showError(error){
 document.getElementById('results').style.display='none';
 document.getElementById('loading').style.display='none';
+const errorDiv = document.createElement('div');
+const ELcard = document.querySelector ('.card');
+const ELheading = document.querySelector('.heading');
+errorDiv.className = 'alert alert-danger';
+errorDiv.appendChild(document.createTextNode(error));
+ELcard.insertBefore(errorDiv, ELheading);
+setTimeout(clearError, 3000);
+}
+function clearError(){
+document.querySelector('.alert').remove();
+}
